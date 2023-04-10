@@ -1,7 +1,7 @@
 import React from 'react';
 import { CDN_URL } from '../utils/constatnts';
 
-const RestaurantCrad = (props) => {
+const RestaurantCard = (props) => {
     const { restData } = props;
     const { name, cloudinaryImageId, avgRating, costForTwo, deliveryTime, cuisines } = restData?.data;
 
@@ -17,4 +17,4 @@ const RestaurantCrad = (props) => {
     )
 }
 
-export default RestaurantCrad;
+export default RestaurantCard;

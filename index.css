@@ -24,6 +24,7 @@
     list-style: none;
     margin: 0 1rem;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .body_container {
@@ -33,8 +34,13 @@
     gap: 1rem;
 }
 
+.body_container a {
+    text-decoration: none;
+    color: black;
+}
+
 .restaurant_card {
-    height: 500px;
+    height: 350px;
     width: 270px;
     border: 1px solid sandybrown;
     border-radius: 5px;
@@ -42,7 +48,7 @@
 
 .restaurant_card img {
     width: 100%;
-    height: 60%;
+    height: 45%;
 }
 
 .restaurant_card h4,
@@ -50,7 +56,8 @@ h3 {
     margin: 0.5rem;
 }
 
-.filter_btn {
+.filter_btn,
+.auth_btns {
     margin: 1rem;
     padding: 1rem;
     cursor: pointer;
