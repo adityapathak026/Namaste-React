@@ -39,19 +39,23 @@
     color: black;
 }
 
-.restaurant_card {
+.restaurant_card,
+.restaurant_menu_card {
     height: 350px;
     width: 270px;
     border: 1px solid sandybrown;
     border-radius: 5px;
 }
 
-.restaurant_card img {
+.restaurant_card img,
+.restaurant_menu_card img {
     width: 100%;
     height: 45%;
 }
 
 .restaurant_card h4,
+h3,
+.restaurant_menu_card h4,
 h3 {
     margin: 0.5rem;
 }

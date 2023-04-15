@@ -1,27 +1,24 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import ShimmerEffect from "./ShimmerEffect";
+import { CDN_URL } from "../utils/constatnts";
+import useRestaurant from "../utils/useRestaurant";
 
 const RestaurantMenu = () => {
 
     const { id } = useParams();
 
-    const [restaurant, setRestaurant] = useState({});
+    const restaurant = useRestaurant(id);
 
-    useEffect(() => {
-        getRestaurant()
-    }, []);
-
-    async function getRestaurant() {
-        const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=${id}`);
-        const json = await data.json();
-        console.log(json?.data);
-        setRestaurant(json?.data);
-    };
-
-    return (
-        <>
-            <h1>Rest Menu Page</h1>
-        </>
+    return (!restaurant) ? <ShimmerEffect /> : (
+        <div className="restaurant_menu_card">
+            <img src={CDN_URL + restaurant?.cloudinaryImageId} alt="" />
+            <h3>Name : {restaurant?.name}</h3>
+            <h4>Area : {restaurant?.areaName}</h4>
+            <h4>Cost for Two : {restaurant?.costForTwoMessage}</h4>
+            <h4>Cuisines : {restaurant?.cuisines?.join(", ")}</h4>
+            <h4>Avg. rating : {restaurant?.avgRatingString}</h4>
+            <h4>Total Rating : {restaurant?.totalRatingsString}</h4>
+        </div>
     )
 };
 

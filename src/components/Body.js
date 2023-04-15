@@ -1,31 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import RestaurantCard from './RestaurantCard';
-import resList from '../utils/mockData';
 import ShimmerEffect from './ShimmerEffect';
 import { Link } from 'react-router-dom';
+import { filterData } from '../utils/helper';
+import useOnline from '../utils/useOnline';
+import useRestaurantData from "../utils/useRestaurantData"
 
 const Body = () => {
 
-    const [allRestaurantList, setAllRestaurantList] = useState([]);
-    const [filteredRestaurant, setFilteredRestaurant] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
-    useEffect(() => {
-        getRestaurantData();
-    }, []);
+    const isOnline = useOnline();
 
-    async function getRestaurantData() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-        setAllRestaurantList(json?.data.cards[2]?.data?.data?.cards);
-    };
+    const { allRestaurantList, filteredRestaurant } = useRestaurantData()
 
-    const filterData = (searchTerm, allRestaurantList) => {
-        const restData = allRestaurantList.filter((rest) => rest.data.name.toLowerCase().includes(searchTerm.toLowerCase()));
-        console.log(restData)
-        return restData;
-    }
+    if (!isOnline) { return <h1>You're offline, please check your internet connection!!</h1> }
 
     if (!allRestaurantList) return null;
 

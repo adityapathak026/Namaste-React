@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { LOGO_URL } from '../utils/constatnts';
 import Logo from '../assets/images/good-food.png';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +12,7 @@ function Header() {
                 <Link to="/"><li>Home</li></Link>
                 <Link to="/about"><li>About Us</li></Link>
                 <Link to="/contact"><li>Contact</li></Link>
+                <Link to="/instamart"><li>Instamart</li></Link>
                 <li>Cart</li>
                 {!isLoggedIn ? <button className='auth_btns' onClick={() => setIsLoggedIn(!isLoggedIn)}>Logout</button> : <button className='auth_btns' onClick={() => setIsLoggedIn(!isLoggedIn)}>Login</button>}
             </ul>
