@@ -14,6 +14,7 @@ import ShimmerEffect from './components/ShimmerEffect';
 const InstaMart = lazy(() => import("./components/InstaMart"))
 
 const AppLayout = () => {
+
     return (
         <>
             <Header />
@@ -54,7 +55,7 @@ const appRouter = createBrowserRouter([
                 element: <Suspense fallback={<ShimmerEffect />}>
                     <InstaMart />
                 </Suspense>
-            }
+            },
         ]
     },
 ])

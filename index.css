@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 * {
     margin: 0;
     padding: 0;
@@ -71,4 +75,9 @@ h3 {
     padding: 0.8rem;
     width: 40%;
     margin: 1rem;
+}
+
+.section_container {
+    border: 1px solid red;
+    margin-top: 10px;
 }

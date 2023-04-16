@@ -19,7 +19,9 @@
   "homepage": "https://github.com/adityapathak026/Namaste-React#readme",
   "devDependencies": {
     "parcel": "^2.8.3",
-    "process": "^0.11.10"
+    "postcss": "^8.4.21",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.1"
   },
   "dependencies": {
     "react": "^18.2.0",
